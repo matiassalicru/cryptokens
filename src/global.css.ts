@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { BACKGROUND_COLOR } from './utils/constants'
 
 export default createGlobalStyle`
     body {
@@ -10,6 +11,7 @@ export default createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         color: white;
+        background: ${BACKGROUND_COLOR};
     }
     html {
         scroll-behavior: smooth;

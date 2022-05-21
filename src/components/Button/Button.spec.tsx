@@ -3,7 +3,7 @@ import { Button } from './Button'
 
 import { fireEvent, render, screen } from '@testing-library/react'
 
-const setup = (mock = { text: 'button', onClick: jest.fn }) =>
+const setup = (mock = { text: 'button', onClick: jest.fn, disabled: false }) =>
   render(<Button {...mock} />)
 
 describe('<Button/>', () => {
@@ -14,7 +14,7 @@ describe('<Button/>', () => {
   })
 
   it('Shows the text "Click me!" on button', () => {
-    setup({ text: 'Click me!', onClick: jest.fn })
+    setup({ text: 'Click me!', onClick: jest.fn, disabled: false })
     const text = screen.getByText('Click me!')
 
     expect(text).toBeInTheDocument()

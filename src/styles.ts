@@ -9,7 +9,8 @@ export const SCContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${BACKGROUND_COLOR};
-  height: 100vh;
+  height: fit-content;
+  padding: 50px 0;
 `
 
 export const SCTitle = styled.h1`
@@ -18,4 +19,8 @@ export const SCTitle = styled.h1`
   font-family: ${DEFAULT_FONT};
   font-weight: 600;
   color: ${COLOR_PRIMARY};
+`
+
+export const SCButtonsWrapper = styled.div`
+  display: flex;
 `

@@ -6,25 +6,36 @@ import { Button } from './components/Button/Button'
 
 // Hooks
 import { useToken } from './components/TokenRowContainer/hooks/useTokens'
-import { SCContainer, SCTitle } from './styles'
+import { SCContainer, SCTitle, SCButtonsWrapper } from './styles'
 import { Loading } from './components/Loading/Loading'
 
 export const App = () => {
-  const { tokens, loading, fetchData } = useToken()
-
-  const updateTokens = () => {
-    fetchData()
-  }
+  const { tokens, loading, fetchData, page, setPage } = useToken()
 
   useEffect(() => {
-    fetchData()
-  }, [])
+    fetchData(page)
+  }, [page])
+
+  const nextPage = () => {
+    setPage((prevPage) => prevPage + 1)
+  }
+
+  const prevPage = () => {
+    setPage((prevPage) => prevPage - 1)
+  }
 
   return (
     <SCContainer>
       <SCTitle>Cryptokens</SCTitle>
       {!loading ? <TokenRowContainer tokens={tokens} /> : <Loading />}
-      <Button text='Update coins' onClick={updateTokens} />
+      <SCButtonsWrapper>
+        <Button
+          text='Prev page'
+          onClick={prevPage}
+          disabled={page <= 1 || loading}
+        />
+        <Button text='Next page' onClick={nextPage} disabled={loading} />
+      </SCButtonsWrapper>
     </SCContainer>
   )
 }

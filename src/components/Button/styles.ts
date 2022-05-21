@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLOR_PRIMARY } from "../../utils/constants";
+import { BACKGROUND_COLOR, COLOR_PRIMARY, COLOR_SECONDARY } from "../../utils/constants";
 
 export const SCButton = styled.button`
   padding: 10px 20px;
@@ -16,5 +16,11 @@ export const SCButton = styled.button`
   &:hover {
     transform: translate(2px, 2px);
     box-shadow: 0 0;
+  }
+
+  &:disabled {
+    background-color: ${COLOR_PRIMARY};
+    color: ${COLOR_SECONDARY};
+    cursor: auto;
   }
 `

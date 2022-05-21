@@ -23,7 +23,7 @@ describe('<TokenRow />', () => {
     ]
     setup({ tokens: TokensMock })
 
-    const tokenId = screen.getByText('Token: ETH')
+    const tokenId = screen.getByText('ETH')
     expect(tokenId).toBeInTheDocument()
   })
 })

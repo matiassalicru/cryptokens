@@ -4,6 +4,6 @@ export interface TokenTypes {
   price: number
 }
 
-export interface TokenRowPropsTypes {
+export interface TokenRowContainerPropsTypes {
   tokens: TokenTypes[]
 }

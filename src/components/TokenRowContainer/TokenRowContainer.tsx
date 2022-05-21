@@ -1,26 +1,21 @@
 // Types
 import { FunctionComponent } from 'react'
-import { TokenRowPropsTypes, TokenTypes } from './TokenRowContainer.interface'
+import {
+  TokenRowContainerPropsTypes,
+  TokenTypes,
+} from './TokenRowContainer.interface'
 
 // Styles
-import {
-  SCTokenContainer,
-  SCCoinContainer,
-  SCTokenTitle,
-  SCTokenPrice,
-} from './styles'
+import { SCTokenContainer } from './styles'
+import { TokenRow } from './TokenRow/TokenRow'
 
-export const TokenRowContainer: FunctionComponent<TokenRowPropsTypes> = ({
-  tokens,
-}) => {
+export const TokenRowContainer: FunctionComponent<
+  TokenRowContainerPropsTypes
+> = ({ tokens }) => {
   return (
     <SCTokenContainer>
       {tokens?.map((coin: TokenTypes) => (
-        <SCCoinContainer key={coin.id}>
-          <SCTokenTitle>Token: {coin.id}</SCTokenTitle>
-          <img src={coin.logo_url} alt='token logo' width={40} />
-          <SCTokenPrice>Price: USD ${coin.price}</SCTokenPrice>
-        </SCCoinContainer>
+        <TokenRow key={coin.id} coin={coin} />
       ))}
     </SCTokenContainer>
   )
