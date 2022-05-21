@@ -1,5 +1,6 @@
 import { MouseEventHandler } from 'react'
 
+// Styles
 import { SCButton } from './styles'
 
 type PropTypes = {

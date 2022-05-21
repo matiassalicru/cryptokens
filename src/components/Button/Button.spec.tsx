@@ -1,7 +1,7 @@
 // Button
 import { Button } from './Button'
 
-import { fireEvent, getByText, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 const setup = (mock = { text: 'button', onClick: jest.fn }) =>
   render(<Button {...mock} />)
@@ -21,9 +21,9 @@ describe('<Button/>', () => {
   })
 
   it('Calls onClick function when the button is clicked', () => {
-    const { container } = setup()
+    setup()
     fireEvent(
-      getByText(container, 'button'),
+      screen.getByText('button'),
       new MouseEvent('click', {
         bubbles: true,
         cancelable: true,
