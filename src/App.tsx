@@ -1,5 +1,3 @@
-import './App.css';
-
 // Components
 import { TokenRow } from './components/TokenRow/TokenRow'
 import { Button } from './components/Button/Button'

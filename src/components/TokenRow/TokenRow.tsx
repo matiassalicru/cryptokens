@@ -4,8 +4,8 @@ import { useEffect } from 'react'
 import { TokenTypes } from './TokenRow.interface'
 
 // Styles
-import { SCCoinContainer, SCTitle } from './styles'
-import { useToken } from './hooks/useToken'
+import { SCTokenContainer, SCCoinContainer, SCTitle } from './styles'
+import { useToken } from './hooks/useTokens'
 
 export const TokenRow = () => {
   const { tokens, loading, fetchData } = useToken()
@@ -15,7 +15,7 @@ export const TokenRow = () => {
   }, [fetchData])
 
   return (
-    <div>
+    <SCTokenContainer>
       <SCTitle>Cryptokens</SCTitle>
       {!loading ? (
         tokens.map((coin: TokenTypes) => (
@@ -28,6 +28,6 @@ export const TokenRow = () => {
       ) : (
         <>Loading</>
       )}
-    </div>
+    </SCTokenContainer>
   )
 }
