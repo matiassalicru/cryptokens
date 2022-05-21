@@ -1,8 +1,9 @@
 import { useState } from "react"
+import { TokenTypes } from "../TokenRow.interface"
 
 export const useToken = () => {
   const [loading, setLoading] = useState(true)
-  const [tokens, setTokens] = useState([])
+  const [tokens, setTokens] = useState<TokenTypes[]>([])
 
   const fetchData = async () => {
     setLoading(true)

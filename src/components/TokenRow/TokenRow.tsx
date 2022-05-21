@@ -1,5 +1,6 @@
 // Types
-import { TokenTypes } from './TokenRow.interface'
+import { FunctionComponent } from 'react'
+import { TokenRowPropsTypes, TokenTypes } from './TokenRow.interface'
 
 // Styles
 import {
@@ -10,11 +11,11 @@ import {
   SCTokenPrice,
 } from './styles'
 
-export const TokenRow = ({ tokens }: any) => {
+export const TokenRow: FunctionComponent<TokenRowPropsTypes> = ({ tokens }) => {
   return (
     <SCTokenContainer>
       <SCTitle>Cryptokens</SCTitle>
-      {tokens.map((coin: TokenTypes) => (
+      {tokens?.map((coin: TokenTypes) => (
         <SCCoinContainer key={coin.id}>
           <SCTokenTitle>Token: {coin.id}</SCTokenTitle>
           <img src={coin.logo_url} alt='token logo' width={40} />

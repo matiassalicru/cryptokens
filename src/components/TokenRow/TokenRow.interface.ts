@@ -3,3 +3,7 @@ export interface TokenTypes {
   logo_url: string
   price: number
 }
+
+export interface TokenRowPropsTypes {
+  tokens: TokenTypes[]
+}
