@@ -1,5 +1,5 @@
 export interface TokenTypes {
-  id: number
+  id: string
   logo_url: string
   price: number
 }
