@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // Constants
-import { BACKGROUND_COLOR } from "./utils/constants";
+import { BACKGROUND_COLOR, COLOR_PRIMARY, DEFAULT_FONT } from "./utils/constants";
 
 export const SCContainer = styled.div`
   display: flex;
@@ -10,4 +10,12 @@ export const SCContainer = styled.div`
   justify-content: center;
   background-color: ${BACKGROUND_COLOR};
   height: 100vh;
+`
+
+export const SCTitle = styled.h1`
+  font-size: 3em;
+  font-style: italic;
+  font-family: ${DEFAULT_FONT};
+  font-weight: 600;
+  color: ${COLOR_PRIMARY};
 `

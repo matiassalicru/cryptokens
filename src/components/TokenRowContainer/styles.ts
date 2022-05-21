@@ -9,6 +9,8 @@ export const SCTokenContainer = styled.div`
   color: ${COLOR_PRIMARY}
 `
 
+
+
 export const SCCoinContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -17,13 +19,6 @@ export const SCCoinContainer = styled.div`
   min-width: 600px;
 `
 
-export const SCTitle = styled.h1`
-  font-size: 3em;
-  font-style: italic;
-  font-family: ${DEFAULT_FONT};
-  font-weight: 100;
-  color: ${COLOR_PRIMARY};
-`
 
 export const SCTokenTitle = styled.h1`
   font-size: 2rem;

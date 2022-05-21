@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { TokenRow } from './TokenRow'
+import { TokenRowContainer } from './TokenRowContainer'
 
 const tokensMock = [
   {
@@ -9,7 +9,8 @@ const tokensMock = [
   },
 ]
 
-const setup = (mock = { tokens: tokensMock }) => render(<TokenRow {...mock} />)
+const setup = (mock = { tokens: tokensMock }) =>
+  render(<TokenRowContainer {...mock} />)
 
 describe('<TokenRow />', () => {
   it('Shows the element with the selected Token', () => {
