@@ -1,15 +1,12 @@
-import React from 'react'
-import { MouseEventHandler } from "react"
+import { MouseEventHandler } from 'react'
+
+import { SCButton } from './styles'
 
 type PropTypes = {
-  onClick: MouseEventHandler,
+  onClick: MouseEventHandler
   text: string
 }
 
-export const Button = ({onClick, text}: PropTypes) => {
-  return (
-    <div>
-      <button onClick={onClick}>{text}</button>
-    </div>
-  )
+export const Button = ({ onClick, text }: PropTypes) => {
+  return <SCButton onClick={onClick}>{text}</SCButton>
 }
