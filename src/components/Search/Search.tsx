@@ -1,19 +1,23 @@
-import { SyntheticEvent, useState } from 'react'
+import { SyntheticEvent, useContext, useState } from 'react'
+
+// Context
+import { TokensContext } from '../../context/TokensContext'
 
 // Hooks
 import { useToken } from '../TokenRowContainer/hooks/useTokens'
 
 // Styles
-import { SCInputSearch } from './styles'
+import { SCInputSearch, SCForm } from './styles'
 
 export const Search = () => {
   const [searchValue, setSearchValue] = useState('')
-  const { page, fetchData } = useToken()
+  const { tokens, setTokens, loading, setLoading } = useContext(TokensContext)
+  const { page, fetchData } = useToken(tokens, setTokens, loading, setLoading)
 
   const onSearch = ({
     target: { value },
   }: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(value)
+    setSearchValue(value.toUpperCase())
   }
 
   const onSubmit = (e: SyntheticEvent) => {
@@ -22,8 +26,8 @@ export const Search = () => {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <SCForm onSubmit={onSubmit}>
       <SCInputSearch type='text' placeholder='Search..' onChange={onSearch} />
-    </form>
+    </SCForm>
   )
 }

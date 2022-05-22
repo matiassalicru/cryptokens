@@ -1,33 +1,38 @@
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
+
+// Context
+import { TokensContext } from './context/TokensContext'
 
 // Components
 import { TokenRowContainer } from './components/TokenRowContainer/TokenRowContainer'
 import { Button } from './components/Button/Button'
+import { Loading } from './components/Loading/Loading'
+import { Search } from './components/Search/Search'
 
 // Hooks
 import { useToken } from './components/TokenRowContainer/hooks/useTokens'
 import { SCContainer, SCTitle, SCButtonsWrapper } from './styles'
-import { Loading } from './components/Loading/Loading'
-import { Search } from './components/Search/Search'
 
 export const App = () => {
-  const { tokens, loading, fetchData, page, setPage } = useToken()
+  const { tokens, setTokens, loading, setLoading } = useContext(TokensContext)
+  const { fetchData, page, setPage } = useToken(
+    tokens,
+    setTokens,
+    loading,
+    setLoading
+  )
 
   useEffect(() => {
     fetchData(page)
   }, [page])
 
   const nextPage = () => {
-    setPage((prevPage) => prevPage + 1)
+    setPage((prevPage: number) => prevPage + 1)
   }
 
   const prevPage = () => {
-    setPage((prevPage) => prevPage - 1)
+    setPage((prevPage: number) => prevPage - 1)
   }
-
-  useEffect(() => {
-    console.log('should update')
-  }, [tokens])
 
   return (
     <SCContainer>

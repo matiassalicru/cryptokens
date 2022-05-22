@@ -1,14 +1,16 @@
-import { useState } from "react"
+import { Dispatch, SetStateAction, useState } from "react"
 import { TokenTypes } from "../TokenRowContainer.interface"
 
-export const useToken = () => {
+export const useToken = (
+  tokens: TokenTypes[],
+  setTokens: Dispatch<SetStateAction<TokenTypes[]>>,
+  loading: boolean,
+  setLoading: Dispatch<SetStateAction<boolean>>
+  ): any => {
   const [page, setPage] = useState(1)
-  const [loading, setLoading] = useState(true)
-  const [tokens, setTokens] = useState<TokenTypes[]>([])
 
   const fetchData = async (page: number, searchValue?: string) => {
     setLoading(true)
-    
     if (searchValue) {
       const res = await fetch(
         `https://api.nomics.com/v1/currencies/ticker?key=3d338912c9099561c0ca6f20e4491d624e19014d&ids=${searchValue}&per-page=5&page=${page}`

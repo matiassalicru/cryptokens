@@ -6,7 +6,7 @@ export const SCInputSearch = styled.input`
   font-size: 1.2rem;
   border: 1px solid ${COLOR_PRIMARY};
   border-radius: 5px;
-  width: 50%;
+  width: 30rem;
   background: none;
   color: ${COLOR_PRIMARY};
 
@@ -15,4 +15,10 @@ export const SCInputSearch = styled.input`
     font-style: italic;
     opacity: .5;
   }
+`
+
+export const SCForm = styled.form`
+  display: flex;
+  justify-content: center;
+  width: 100%;
 `
