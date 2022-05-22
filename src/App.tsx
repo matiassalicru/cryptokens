@@ -8,6 +8,7 @@ import { Button } from './components/Button/Button'
 import { useToken } from './components/TokenRowContainer/hooks/useTokens'
 import { SCContainer, SCTitle, SCButtonsWrapper } from './styles'
 import { Loading } from './components/Loading/Loading'
+import { Search } from './components/Search/Search'
 
 export const App = () => {
   const { tokens, loading, fetchData, page, setPage } = useToken()
@@ -24,9 +25,14 @@ export const App = () => {
     setPage((prevPage) => prevPage - 1)
   }
 
+  useEffect(() => {
+    console.log('should update')
+  }, [tokens])
+
   return (
     <SCContainer>
       <SCTitle>Cryptokens</SCTitle>
+      <Search />
       {!loading ? <TokenRowContainer tokens={tokens} /> : <Loading />}
       <SCButtonsWrapper>
         <Button
