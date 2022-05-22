@@ -39,6 +39,7 @@ export const SCLoadingAnimation = styled.div`
   background-color: transparent;
   border-top-color: ${BACKGROUND_COLOR};
   animation: ${rotate} 1s linear infinite ;
+  margin: 50px;
 `
 
 

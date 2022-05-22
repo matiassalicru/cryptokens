@@ -6,7 +6,8 @@ export const SCTokenContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: ${COLOR_PRIMARY}
+  color: ${COLOR_PRIMARY};
+  margin: 20px;
 `
 
 
